@@ -1,8 +1,9 @@
 #include<stdio.h>
-// int MAX=10;
+// Variables which are declared using define will be reamin constat through whole program.
 #define MAX 10
 int st[MAX];
 int top= -1;
+// These 4 function definition will be declared on top of scope to get accessed from anywhere.
 int push();
 int pop();
 int peep();
@@ -10,6 +11,7 @@ int display();
 int main()
 {
   int option;
+  // While will loop will terminate if "0" is pressed.
   while(option!=0)
   {
     printf("******MAIN MENU******\n");
@@ -55,12 +57,14 @@ int push()
   int val;
   printf("Enter value to push in stack.\n");
   scanf("%d\n",&val);
+  //If the top value is at very bottom then the stack will be empty.
   if(top == MAX-1)
   {
     printf("everything is full, let me empty first...\n");
   }
   else
   {
+// First we require to create space and then we can fill some new values.
     top+=1;
     st[top]=val;
   }
@@ -76,6 +80,7 @@ int pop()
   else
   {
     del_value = st[top];
+    // Actual deletion of values is done over-here upper statement will just print the value.
     top--;
   }
   return 0;
@@ -96,6 +101,7 @@ int display()
   }
   return 0;
 }
+// This function will simply print the top-most value of the stack.
 int peep()
 {
   int top_value;
