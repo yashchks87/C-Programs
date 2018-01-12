@@ -54,10 +54,6 @@ int main()
       {
         display();
       }
-      // default:
-      // {
-      //   printf("Invalid option, please try again\n");
-      // }
     }
   }
   return 0;
@@ -107,11 +103,6 @@ int isFull()
 }
 int isEmpty()
 {
-  // if(front < MAX && rear > 0 )
-  // {
-  //   printf("There's space in queue\n");
-  //   return 1;
-  // }
   if(front < rear)
   {
     printf("Queue is empty.\n");
