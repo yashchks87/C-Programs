@@ -4,6 +4,7 @@ int print_whole();
 int insert_all();
 int del_by_pos();
 int del_by_val();
+int sort_bubble();
 int insert_specific_pos();
 int n;
 int main()
@@ -51,6 +52,12 @@ int main()
       {
         // Insert value in array at specific position.
         insert_specific_pos();
+        break;
+      }
+      case 6:
+      {
+        // Sort array using bubble sort method.
+        sort_bubble();
         break;
       }
     }
@@ -150,6 +157,23 @@ int insert_specific_pos()
   if(print_criteria==1)
   {
     print_whole();
+  }
+  return 0;
+}
+int sort_bubble()
+{
+  int index_pos;
+  int value_to_insert;
+  for(int i=1;i<=n;i++)
+  {
+    index_pos=i;
+    value_to_insert=a[i];
+    while(index_pos>0 && a[index_pos-1]>value_to_insert)
+    {
+      a[index_pos]=a[index_pos-1];
+      index_pos=index_pos-1;
+    }
+    a[index_pos]=value_to_insert;
   }
   return 0;
 }
