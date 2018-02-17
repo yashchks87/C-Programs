@@ -4,6 +4,7 @@ int print_whole();
 int insert_all();
 int del_by_pos();
 int del_by_val();
+int sort_insertion();
 int sort_bubble();
 int insert_specific_pos();
 int n;
@@ -20,6 +21,8 @@ int main()
     printf("3.Delete value from array by position.\n");
     printf("4.Delete value from array by value.\n");
     printf("5.Insert at specific position.\n");
+    printf("6.Sort array using insertion sorting.\n");
+    printf("7.Sort array using bubble sorting.\n");
     printf("Choose appropriate option.");
     scanf("%d",&option);
     switch(option)
@@ -55,6 +58,12 @@ int main()
         break;
       }
       case 6:
+      {
+        // Sort array using insertion sort method.
+        sort_insertion();
+        break;
+      }
+      case 7:
       {
         // Sort array using bubble sort method.
         sort_bubble();
@@ -160,7 +169,7 @@ int insert_specific_pos()
   }
   return 0;
 }
-int sort_bubble()
+int sort_insertion()
 {
   int index_pos;
   int value_to_insert;
@@ -174,6 +183,23 @@ int sort_bubble()
       index_pos=index_pos-1;
     }
     a[index_pos]=value_to_insert;
+  }
+  return 0;
+}
+int sort_bubble()
+{
+  for(int i=1;i<=n-1;i++)
+  {
+    for(int j=1;j<=n-1;j++)
+    {
+      if(a[j]>a[j+1])
+      {
+        int temp;
+        temp=a[j];
+        a[j]=a[j+1];
+        a[j+1]=temp;
+      }
+    }
   }
   return 0;
 }
