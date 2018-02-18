@@ -8,6 +8,7 @@ int sort_insertion();
 int sort_bubble();
 int insert_specific_pos();
 int linear_search();
+int binary_search();
 int n;
 int main()
 {
@@ -25,6 +26,7 @@ int main()
     printf("6.Sort array using insertion sorting.\n");
     printf("7.Sort array using bubble sorting.\n");
     printf("8.Search element from array by linear search.\n");
+    printf("9.Search element from array by binary search.\n");
     printf("Choose appropriate option.");
     scanf("%d",&option);
     switch(option)
@@ -75,6 +77,12 @@ int main()
       {
         // Sort array using bubble sort method.
         linear_search();
+        break;
+      }
+      case 9:
+      {
+        // Sort array using bubble sort method.
+        binary_search();
         break;
       }
     }
@@ -227,5 +235,29 @@ int linear_search()
   if(isFound==0)
   {
     printf("The value is not present in the whole array.\n");
+  }
+}
+int binary_search()
+{
+  int value_to_search;
+  printf("Enter value to search from array.\n");
+  scanf("%d",&value_to_search);
+  int lower_bound=1,upper_bound=n;
+  while(lower_bound<=upper_bound)
+  {
+    int mid_point;
+    mid_point=lower_bound + ((upper_bound-lower_bound)/2);
+    if(a[mid_point]<value_to_search)
+    {
+      lower_bound = mid_point + 1;
+    }
+    else if(a[mid_point]>value_to_search)
+    {
+      upper_bound = mid_point - 1;
+    }
+    else if(a[mid_point]==value_to_search)
+    {
+      printf("The value is found at %d position.\n",mid_point);
+    }
   }
 }
