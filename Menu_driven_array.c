@@ -7,6 +7,7 @@ int del_by_val();
 int sort_insertion();
 int sort_bubble();
 int insert_specific_pos();
+int linear_search();
 int n;
 int main()
 {
@@ -23,6 +24,7 @@ int main()
     printf("5.Insert at specific position.\n");
     printf("6.Sort array using insertion sorting.\n");
     printf("7.Sort array using bubble sorting.\n");
+    printf("8.Search element from array by linear search.\n");
     printf("Choose appropriate option.");
     scanf("%d",&option);
     switch(option)
@@ -67,6 +69,12 @@ int main()
       {
         // Sort array using bubble sort method.
         sort_bubble();
+        break;
+      }
+      case 8:
+      {
+        // Sort array using bubble sort method.
+        linear_search();
         break;
       }
     }
@@ -202,4 +210,22 @@ int sort_bubble()
     }
   }
   return 0;
+}
+int linear_search()
+{
+  int value_to_search,isFound=0;
+  printf("Enter value to search from array.\n");
+  scanf("%d",&value_to_search);
+  for(int i=1;i<=n;i++)
+  {
+    if(value_to_search==a[i])
+    {
+      printf("The value is found at %d position.\n",i);
+      isFound=1;
+    }
+  }
+  if(isFound==0)
+  {
+    printf("The value is not present in the whole array.\n");
+  }
 }
