@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+  FILE *fp;
+  fp = fopen("./test.txt","w+");
+  fputs("Hello Chodu.\n",fp);
+  fclose(fp);
+  return 0;
+}
