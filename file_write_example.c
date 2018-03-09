@@ -3,7 +3,7 @@ int main()
 {
   FILE *fp;
   fp = fopen("./test.txt","w+");
-  fputs("Hello Chodu.\n",fp);
+  fputs("Hello World.\n",fp);
   fclose(fp);
   return 0;
 }
