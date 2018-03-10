@@ -1,14 +1,17 @@
 #include<stdio.h>
 #include<math.h>
 int a,b,c;
+int input_sides();
+int Perimetere();
+int Area();
 int main()
 {
   int choice;
   while(choice != 0)
   {
-      printf("1. Input sides");
-      printf("2. Perimetere");
-      printf("3. Area");
+      printf("1. Input sides\n");
+      printf("2. Perimetere\n");
+      printf("3. Area\n");
       scanf("%d",&choice);
       switch(choice)
       {
