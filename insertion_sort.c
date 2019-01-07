@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-  int a[10],n;
+  int a[10], n, i, j, temp;
   printf("Enter length of array.\n");
   scanf("%d",&n);
   //Entering elements....
@@ -9,19 +9,15 @@ int main()
   {
     scanf("%d",&a[i]);
   }
-  //Bubble sort code....
-  int value_to_insert,index_pos;
-  for(int i=1;i<=n;i++)
-  {
-    value_to_insert=a[i];
-    index_pos=i;
-    while(index_pos>0 && a[index_pos-1]>value_to_insert)
-    {
-      // int temp;
-      a[index_pos]=a[index_pos-1];
-      index_pos=index_pos-1;
+  // Insertion sort starts....
+  for(i=0;i<n;i++){
+    temp = a[i];
+    j = i-1;
+    while((temp<a[j])&&(j>=0)){
+      a[j+1] = a[j];
+      j--;
     }
-    a[index_pos]=value_to_insert;
+    a[j+1] = temp;
   }
   //For printing values....
   for(int i=1;i<=n;i++)

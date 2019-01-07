@@ -1,131 +1,84 @@
 #include<stdio.h>
-#define MAX 4
-int que[MAX];
-int front=MAX;
-int rear=MAX;
-int enque();
-int deque();
+#define MAX 20
+int myArray[MAX];
+int front = 1, rear = 0;
+int insert();
+int delete();
 int peek();
-int isFull();
-int isEmpty();
 int display();
-int main()
-{
+int main(){
   int option;
-  while(option!=0)
-  {
-    printf("*****MAIN MENU******\n");
-    printf("1.Add new value in queue\n");
-    printf("2.Remove value from array\n");
-    printf("3.Print top-most value of queue.\n");
-    printf("4.Check queue is full or not.\n");
-    printf("5.Check queue is empty or not.\n");
-    printf("6.Print whole queue.\n");
-    printf("Choose appropriate option\n");
+  while(option!=0){
+    printf("********MAIN MENU********\n");
+    printf("1. Insert\n");
+    printf("2. Delete\n");
+    printf("3. PEEK\n");
+    printf("4. DISPLAY\n");
+    printf("Please choose appropriate option.\n");
+    printf("Please press 0 for exit.\n");
     scanf("%d",&option);
-    switch(option)
-    {
+    switch(option){
       case 1:
-      {
-        enque();
+        insert();
         break;
-      }
+
       case 2:
-      {
-        deque();
+        delete();
         break;
-      }
+
       case 3:
-      {
         peek();
         break;
-      }
+
       case 4:
-      {
-        isFull();
-        break;
-      }
-      case 5:
-      {
-        isEmpty();
-        break;
-      }
-      case 6:
-      {
         display();
-      }
+        break;
     }
   }
-  return 0;
 }
-int enque()
-{
-  int val;
-  printf("Enter value you want to enter\n");
-  scanf("%d",&val);
-  if(isFull()==0)
-  {
-    printf("Queue is full, can't able to add.\n");
+int insert(){
+  if(rear == MAX){
+    printf("Queue is full nothing to add.\n");
   }
-  else
-  {
-    que[rear]=val;
-    rear--;
+  else{
+    int data;
+    printf("Enter value which you want to add in queue.\n");
+    scanf("%d",&data);
+    rear++;
+    myArray[rear] = data;
+    printf("The added value is %d\n.",data);
   }
   return 0;
 }
-int deque()
-{
-  int removed_value;
-  if(isEmpty()==1)
-  {
-    printf("Yes, Queue is empty nothing to deque.\n");
-  }
-  else
-  {
-    removed_value = que[front];
-    front--;
-  }
-  return 0;
-}
-int isFull()
-{
-  if(front == MAX && rear == 0)
-  {
-    printf("Queue is full\n");
-    return 0;
-  }
-  else
-  {
-    printf("Scope is present, you can add some elements.\n");
-    return 1;
-  }
-}
-int isEmpty()
-{
-  if(front < rear)
-  {
+int delete(){
+  if(front == MAX && rear == 0){
     printf("Queue is empty.\n");
-    return 1;
   }
-  else
-  {
-    printf("Queue is not empty.\n");
-    return 0;
+  else{
+    int data = myArray[front];
+    front++;
+    printf("Deleted value is %d\n", data);
   }
-}
-int peek()
-{
-  int top_value;
-  top_value = que[front];
-  printf("First value in queue is:%d\n",top_value);
   return 0;
 }
-int display()
-{
-  for(int i=front;i>rear;i--)
-  {
-    printf("Queue[%d]=%d\n",i,que[i]);
+int peek(){
+  if(front == MAX && rear == 0){
+    printf("Queue is empty, nothing to show.\n");
+  }
+  else{
+    int data = myArray[front];
+    printf("The very first element is %d.\n", data);
+  }
+  return 0;
+}
+int display(){
+  if(front == MAX && rear == 0){
+    printf("Queue is empty, nothing to show.\n");
+  }
+  else{
+    for(int i=1;i<=MAX;i++){
+      printf("Queue[%d]=%d\n",i,myArray[i]);
+    }
   }
   return 0;
 }

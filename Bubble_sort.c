@@ -1,32 +1,28 @@
 #include<stdio.h>
 int main(){
-  int n, a[10];
-  printf("Enter length of array.");
-  // Declaring length of whole array.
-  scanf("%d",&n);
+  int myArray[20], n;
+  printf("Please enter length of array.\n");
+  scanf("%d", &n);
+  printf("Enter elements.\n");
   for(int i=1;i<=n;i++){
-    printf("Enter %d index value.\n",i);
-    scanf("%d",&a[i]);
+    scanf("%d\n", &myArray[i]);
   }
-  printf("Printing the unsorted array.\n");
+  printf("Printing the elements....\n");
   for(int i=1;i<=n;i++){
-    printf("a[%d]=%d\n",i,a[i]);
+    printf("myArray[%d]=%d\n", i, myArray[i]);
   }
-  printf("Sorting will starts.\n");
-  // Why 2 loops?
-  // Because using 1 loop you are just managing 1 element not all.
-  // By creating 2 loops you are managing 2 loops.
-  for(int i=1;i<n;i++){
-    for(int j=1;j<n;j++){
-      if(a[j]>a[j+1]){
-        int temp = a[j];
-        a[j] = a[j+1];
-        a[j+1] = temp;
+  printf("Now we are sorting the array.\n");
+  for(int i=1;i<=n;i++){
+    for(int j=1;j<=n;j++){
+      if(myArray[j]>myArray[j+1]){
+        int temp = myArray[j];
+        myArray[j] = myArray[j+1];
+        myArray[j+1] = temp;
       }
     }
   }
-  printf("Array after sorting.\n");
+  printf("Printing the sorted array.\n");
   for(int i=1;i<=n;i++){
-    printf("a[%d]=%d\n",i,a[i]);
+    printf("myArray[%d]=%d\n", i, myArray[i]);
   }
 }
